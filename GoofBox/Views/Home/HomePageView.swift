@@ -12,7 +12,7 @@ struct HomePageView: View {
 		NavigationStack {
 			VStack(alignment: .leading) {
 				ScrollView {
-					ForEach(0..<7) {_ in
+					ForEach(0..<5) {_ in
 						HStack {
 								Spacer()
 								SoundItemView()
@@ -27,14 +27,14 @@ struct HomePageView: View {
 			}
 			.toolbar(content: {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button {
-						print("toto")
-					} label: {
-						Image(systemName: "plus.circle")
-							.font(.title3)
-							.foregroundColor(.accentColor)
-
-					}
+					NavigationLink(
+						destination: RecordPageView(),
+					    label: {
+						   Image(systemName: "plus.circle")
+							   .font(.title3)
+							   .foregroundColor(.accentColor)
+					   }
+					)
 				}
 			})
 			.navigationTitle("GoofBox")

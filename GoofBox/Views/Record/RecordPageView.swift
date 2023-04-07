@@ -15,19 +15,6 @@ struct RecordPageView: View {
 
 				}
 			}
-			.toolbar(content: {
-				ToolbarItem(placement: .navigationBarLeading) {
-					Button {
-						print("toto")
-					} label: {
-						Image(systemName: "arrow.left")
-							.font(.subheadline)
-							.foregroundColor(.accentColor)
-						Text("Home")
-
-					}
-				}
-			})
 			.background(Color("BackgroundColor"))
 		}
     }
