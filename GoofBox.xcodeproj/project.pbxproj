@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4A4A2BA29CB111A00CD7385 /* SoundItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4A2B929CB111A00CD7385 /* SoundItemView.swift */; };
+		B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */; };
 		B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */; };
-		B4CB165729B8BCD80043C8E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165629B8BCD80043C8E0 /* ContentView.swift */; };
+		B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165629B8BCD80043C8E0 /* HomePageView.swift */; };
 		B4CB165929B8BCD90043C8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CB165829B8BCD90043C8E0 /* Assets.xcassets */; };
 		B4CB165C29B8BCD90043C8E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CB165B29B8BCD90043C8E0 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4A4A2B929CB111A00CD7385 /* SoundItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItemView.swift; sourceTree = "<group>"; };
+		B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageView.swift; sourceTree = "<group>"; };
 		B4CB165129B8BCD80043C8E0 /* GoofBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoofBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoofBoxApp.swift; sourceTree = "<group>"; };
-		B4CB165629B8BCD80043C8E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B4CB165629B8BCD80043C8E0 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		B4CB165829B8BCD90043C8E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4CB165B29B8BCD90043C8E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +36,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4A4A2B729CAFD8C00CD7385 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4A4A2BB29CB412C00CD7385 /* Record */,
+				B4A4A2B829CB107F00CD7385 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B4A4A2B829CB107F00CD7385 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B4CB165629B8BCD80043C8E0 /* HomePageView.swift */,
+				B4A4A2B929CB111A00CD7385 /* SoundItemView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B4A4A2BB29CB412C00CD7385 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		B4CB164829B8BCD80043C8E0 = {
 			isa = PBXGroup;
 			children = (
@@ -39,6 +69,7 @@
 				B4CB165229B8BCD80043C8E0 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		B4CB165229B8BCD80043C8E0 /* Products */ = {
 			isa = PBXGroup;
@@ -52,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */,
-				B4CB165629B8BCD80043C8E0 /* ContentView.swift */,
+				B4A4A2B729CAFD8C00CD7385 /* Views */,
 				B4CB165829B8BCD90043C8E0 /* Assets.xcassets */,
 				B4CB165A29B8BCD90043C8E0 /* Preview Content */,
 			);
@@ -137,7 +168,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CB165729B8BCD80043C8E0 /* ContentView.swift in Sources */,
+				B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */,
+				B4A4A2BA29CB111A00CD7385 /* SoundItemView.swift in Sources */,
+				B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */,
 				B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

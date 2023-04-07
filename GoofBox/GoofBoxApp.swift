@@ -11,7 +11,7 @@ import SwiftUI
 struct GoofBoxApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			HomePageView().preferredColorScheme(.dark)
         }
     }
 }
