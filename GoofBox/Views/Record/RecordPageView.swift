@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct RecordPageView: View {
-	@State private var echo: Float = 0.0
-	@State private var reverb: Float = 0.0
-	@State private var modulation: Float = 0.0
-
     var body: some View {
 		NavigationStack {
 			ZStack {
@@ -29,28 +25,11 @@ struct RecordPageView: View {
 					.padding(.bottom, 20)
 
 					HStack {
-						Text("Echo")
-							.frame(width: 100)
-							.padding(.trailing, 30)
-						Text("Reverb")
-							.frame(width: 100)
-							.padding(.trailing, 25)
-						Text("Modulation")
-							.frame(width: 100)
+						SoundModifierSliderView(sliderName: "Echo").frame(width: 100)
+						SoundModifierSliderView(sliderName: "Reverb").frame(width: 100)
+						SoundModifierSliderView(sliderName: "Modulation").frame(width: 100)
 					}
-					.foregroundColor(.accentColor)
-
-					VStack {
-						Slider(value: $echo, in: 0...1)
-							.padding(50)
-						Slider(value: $reverb, in: 0...1)
-							.padding(50)
-						Slider(value: $modulation, in: 0...1)
-							.padding(50)
-					}
-					.rotationEffect(.degrees(-90))
-					.padding(.top, 250)
-					.frame(width: 350, height: 10)
+					.padding(.bottom, 50)
 
 					Spacer()
 
@@ -58,7 +37,7 @@ struct RecordPageView: View {
 						print("rec")
 					} label: {
 						Image(systemName: "record.circle")
-							.font(.system(size: 70))
+							.font(.system(size: 60))
 							.foregroundColor(.red)
 					}
 				}

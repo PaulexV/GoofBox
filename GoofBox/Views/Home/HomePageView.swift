@@ -15,9 +15,9 @@ struct HomePageView: View {
 					ForEach(0..<5) {_ in
 						HStack {
 								Spacer()
-								SoundItemView()
-								SoundItemView()
-								SoundItemView()
+								SoundItemView(soundName: "sound1")
+								SoundItemView(soundName: "sound2")
+								SoundItemView(soundName: "sound3")
 								Spacer()
 						}
 					}
