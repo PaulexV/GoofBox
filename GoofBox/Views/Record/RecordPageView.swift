@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RecordPageView: View {
+
+	@ObservedObject var rec = RecordViewModel()
+
     var body: some View {
 		NavigationStack {
 			ZStack {
@@ -16,16 +19,18 @@ struct RecordPageView: View {
 					Spacer()
 
 					Button {
-						print("play")
+						rec.isPlaying ?
+						rec.stopPlaying(url: rec.recordingsList.last!.fileURL) :
+						rec.startPlaying(url: rec.recordingsList.last!.fileURL)
 					} label: {
-						Image(systemName: "play.circle")
+						Image(systemName: rec.isPlaying ? "stop.circle" : "play.circle")
 							.font(.system(size: 50))
 							.foregroundColor(.accentColor)
 					}
 					.padding(.bottom, 20)
 
 					HStack {
-						SoundModifierSliderView(sliderName: "Echo").frame(width: 100)
+						SoundModifierSliderView(sliderName: "Pitch").frame(width: 100)
 						SoundModifierSliderView(sliderName: "Reverb").frame(width: 100)
 						SoundModifierSliderView(sliderName: "Modulation").frame(width: 100)
 					}
@@ -34,14 +39,15 @@ struct RecordPageView: View {
 					Spacer()
 
 					Button {
-						print("rec")
+						rec.isRecording ?
+						rec.stopRecording() :
+						rec.startRecording()
 					} label: {
-						Image(systemName: "record.circle")
+						Image(systemName: rec.isRecording ? "stop.circle" : "record.circle")
 							.font(.system(size: 60))
 							.foregroundColor(.red)
 					}
 				}
-				.background(Color("BackgroundColor"))
 			}
 		}
     }

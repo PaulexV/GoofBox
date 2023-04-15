@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42090A029E88B88008184A5 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = B420909F29E88B88008184A5 /* DSWaveformImage */; };
+		B42090A229E88B88008184A5 /* DSWaveformImageViews in Frameworks */ = {isa = PBXBuildFile; productRef = B42090A129E88B88008184A5 /* DSWaveformImageViews */; };
+		B42090A629E8A15D008184A5 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42090A529E8A15D008184A5 /* RecordViewModel.swift */; };
+		B42090A829E8ACF4008184A5 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42090A729E8ACF4008184A5 /* Recording.swift */; };
 		B4A4A2BA29CB111A00CD7385 /* SoundItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4A2B929CB111A00CD7385 /* SoundItemView.swift */; };
 		B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */; };
 		B4A5BA6929E5D8B000C7CE1E /* SoundModifierSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A5BA6829E5D8B000C7CE1E /* SoundModifierSliderView.swift */; };
+		B4A5BA6E29E6128A00C7CE1E /* WaveFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */; };
 		B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */; };
 		B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165629B8BCD80043C8E0 /* HomePageView.swift */; };
 		B4CB165929B8BCD90043C8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CB165829B8BCD90043C8E0 /* Assets.xcassets */; };
@@ -17,9 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42090A529E8A15D008184A5 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		B42090A729E8ACF4008184A5 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		B4A4A2B929CB111A00CD7385 /* SoundItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItemView.swift; sourceTree = "<group>"; };
 		B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageView.swift; sourceTree = "<group>"; };
 		B4A5BA6829E5D8B000C7CE1E /* SoundModifierSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModifierSliderView.swift; sourceTree = "<group>"; };
+		B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFormView.swift; sourceTree = "<group>"; };
 		B4CB165129B8BCD80043C8E0 /* GoofBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoofBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoofBoxApp.swift; sourceTree = "<group>"; };
 		B4CB165629B8BCD80043C8E0 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -32,12 +40,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42090A029E88B88008184A5 /* DSWaveformImage in Frameworks */,
+				B42090A229E88B88008184A5 /* DSWaveformImageViews in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B42090A329E893B2008184A5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B42090A529E8A15D008184A5 /* RecordViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B42090A429E893BE008184A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B42090A729E8ACF4008184A5 /* Recording.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B4A4A2B729CAFD8C00CD7385 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +87,16 @@
 			children = (
 				B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */,
 				B4A5BA6829E5D8B000C7CE1E /* SoundModifierSliderView.swift */,
+				B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		B4A5BA6A29E6121D00C7CE1E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B4CB164829B8BCD80043C8E0 = {
@@ -86,6 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */,
+				B42090A429E893BE008184A5 /* Models */,
+				B42090A329E893B2008184A5 /* ViewModels */,
+				B4A5BA6A29E6121D00C7CE1E /* Services */,
 				B4A4A2B729CAFD8C00CD7385 /* Views */,
 				B4CB165829B8BCD90043C8E0 /* Assets.xcassets */,
 				B4CB165A29B8BCD90043C8E0 /* Preview Content */,
@@ -117,6 +154,10 @@
 			dependencies = (
 			);
 			name = GoofBox;
+			packageProductDependencies = (
+				B420909F29E88B88008184A5 /* DSWaveformImage */,
+				B42090A129E88B88008184A5 /* DSWaveformImageViews */,
+			);
 			productName = GoofBox;
 			productReference = B4CB165129B8BCD80043C8E0 /* GoofBox.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +186,9 @@
 				Base,
 			);
 			mainGroup = B4CB164829B8BCD80043C8E0;
+			packageReferences = (
+				B420909E29E88B88008184A5 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
+			);
 			productRefGroup = B4CB165229B8BCD80043C8E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,8 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A5BA6E29E6128A00C7CE1E /* WaveFormView.swift in Sources */,
 				B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */,
 				B4A4A2BA29CB111A00CD7385 /* SoundItemView.swift in Sources */,
+				B42090A629E8A15D008184A5 /* RecordViewModel.swift in Sources */,
+				B42090A829E8ACF4008184A5 /* Recording.swift in Sources */,
 				B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */,
 				B4A5BA6929E5D8B000C7CE1E /* SoundModifierSliderView.swift in Sources */,
 				B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */,
@@ -376,6 +423,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B420909E29E88B88008184A5 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B420909F29E88B88008184A5 /* DSWaveformImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B420909E29E88B88008184A5 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImage;
+		};
+		B42090A129E88B88008184A5 /* DSWaveformImageViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B420909E29E88B88008184A5 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImageViews;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B4CB164929B8BCD80043C8E0 /* Project object */;
 }
