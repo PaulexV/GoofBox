@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Recording : Equatable {
-	let soundName: String
+	var soundName: String
 	let fileURL : URL
 	let createdAt : Date
-	let imagePath: String
+	var soundImage: Image
 	var isPlaying : Bool
 }

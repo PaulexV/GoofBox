@@ -7,6 +7,8 @@
 
 import Foundation
 import AVFoundation
+import UIKit
+import SwiftUI
 
 class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 
@@ -15,7 +17,10 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 	var audioPlayer : AVAudioPlayer!
 	var playingURL : URL?
 	var currentFileName : URL?
+	var currentModifiedImage : UIImage? = nil
+	var currentSound : Recording? = nil
 
+	@Published var showImagePicker : Bool = false
 	@Published var isRecording : Bool = false
 	@Published var isPlaying : Bool = false
 
@@ -66,7 +71,6 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 		if let filename = self.currentFileName {
 			addRecording(url: filename)
 		}
-		recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
 		print(recordingsList.count)
 	}
 
@@ -78,7 +82,6 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 		for i in directoryContents {
 			addRecording(url: i)
 		}
-		recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
 	}
 
 
@@ -128,7 +131,7 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 				soundName: "NewSound",
 				fileURL : url,
 				createdAt:getFileDate(for: url),
-				imagePath: "BlankImage",
+				soundImage: Image("BlankImage"),
 				isPlaying: false))
 		recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
 	}
@@ -159,6 +162,12 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 			return creationDate
 		} else {
 			return Date()
+		}
+	}
+
+	func changeSoundImage() {
+		if let image = currentModifiedImage {
+			self.currentSound?.soundImage = Image(uiImage: image)
 		}
 	}
 }

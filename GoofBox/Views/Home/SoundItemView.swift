@@ -10,11 +10,11 @@ import SwiftUI
 struct SoundItemView: View {
 
 	@ObservedObject var rec = RecordViewModel()
-	var recording: Recording
+	@State var recording: Recording
 
     var body: some View {
 		VStack {
-			Image(recording.imagePath)
+			recording.soundImage
 				.resizable(resizingMode: .stretch)
 				.cornerRadius(20)
 				.frame(width: 90, height: 90)

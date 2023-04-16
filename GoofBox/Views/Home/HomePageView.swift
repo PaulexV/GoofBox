@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct HomePageView: View {
 
 	@StateObject var rec = RecordViewModel()
+
+	@State private var avatarItem: PhotosPickerItem?
+	@State private var avatarImage: Image?
+
 	let columns = [
 		GridItem(.adaptive(minimum: 110))
 		]
@@ -21,24 +26,33 @@ struct HomePageView: View {
 					LazyVGrid(columns: columns) {
 						ForEach(rec.recordingsList, id: \.createdAt) { recording in
 							SoundItemView(
-							recording: recording
+								recording: recording
 							)
 							.contextMenu(menuItems: {
-								  Button(action: {
-									  print("toto")
-								  }) {
-									  Label("Change Name", systemImage: "pencil")
-								  };
-								  Button(role: .destructive, action: {
-									  rec.deleteRecording(url: recording.fileURL)
-								  }) {
-									  Label("Remove", systemImage: "trash")
-								  }
-							  })
+								Button(action: {
+									print("toto")
+								}) {
+									Label("Change Name", systemImage: "pencil")
+								}
+								Button(action: {
+									rec.currentSound = recording
+									rec.showImagePicker.toggle()
+								}) {
+									Label("Change Image", systemImage: "photo")
+								}
+								Button(role: .destructive, action: {
+									rec.deleteRecording(url: recording.fileURL)
+								}) {
+									Label("Remove", systemImage: "trash")
+								}
+							})
 						}
 					}
 					.padding(.top, 30)
 				}
+			}
+			.onTapGesture {
+				print(rec.recordingsList)
 			}
 			.toolbar(content: {
 				ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,6 +66,9 @@ struct HomePageView: View {
 					)
 				}
 			})
+			.sheet(isPresented: $rec.showImagePicker, onDismiss: rec.changeSoundImage) {
+				ImagePicker(sourceType: .photoLibrary, selectedImage: $rec.currentModifiedImage)
+			}
 			.navigationTitle("GoofBox")
 			.background(Color("BackgroundColor"))
 		}
