@@ -20,10 +20,10 @@ struct RecordPageView: View {
 
 					Button {
 						rec.isPlaying ?
-						rec.stopPlaying(url: rec.recordingsList.last!.fileURL) :
-						rec.startPlaying(url: rec.recordingsList.last!.fileURL)
+						rec.stopPlaying(url: rec.recordingsList.first!.fileURL) :
+						rec.startPlaying(url: rec.recordingsList.first!.fileURL)
 					} label: {
-						Image(systemName: rec.isPlaying ? "stop.circle" : "play.circle")
+						Image(systemName: rec.isPlaying ? "pause.circle" : "play.circle")
 							.font(.system(size: 50))
 							.foregroundColor(.accentColor)
 					}

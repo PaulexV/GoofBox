@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomePageView: View {
 
-	@ObservedObject var rec = RecordViewModel()
+	@StateObject var rec = RecordViewModel()
 	let columns = [
 		GridItem(.adaptive(minimum: 110))
 		]
@@ -20,7 +20,21 @@ struct HomePageView: View {
 				ScrollView {
 					LazyVGrid(columns: columns) {
 						ForEach(rec.recordingsList, id: \.createdAt) { recording in
-							SoundItemView(soundName: recording.createdAt.formatted(), recording: recording)
+							SoundItemView(
+							recording: recording
+							)
+							.contextMenu(menuItems: {
+								  Button(action: {
+									  print("toto")
+								  }) {
+									  Label("Change Name", systemImage: "pencil")
+								  };
+								  Button(role: .destructive, action: {
+									  rec.deleteRecording(url: recording.fileURL)
+								  }) {
+									  Label("Remove", systemImage: "trash")
+								  }
+							  })
 						}
 					}
 					.padding(.top, 30)
