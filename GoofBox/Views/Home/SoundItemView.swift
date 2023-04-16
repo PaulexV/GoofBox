@@ -9,25 +9,20 @@ import SwiftUI
 
 struct SoundItemView: View {
 
-	var soundName: String
+	@ObservedObject var rec = RecordViewModel()
+	var recording: Recording
 
     var body: some View {
-        VStack {
-            Image("BlankImage")
-                .resizable(resizingMode: .stretch)
-                .cornerRadius(20)
-                .frame(width: 90, height: 90)
-            Text(soundName)
-                .foregroundColor(Color.accentColor)
-        }
-    }
-}
-
-struct SoundItemView_Previews: PreviewProvider {
-    static var previews: some View {
-		ZStack {
-			Color("BackgroundColor").ignoresSafeArea()
-			SoundItemView(soundName: "Sound").preferredColorScheme(.dark)
+		VStack {
+			Image(recording.imagePath)
+				.resizable(resizingMode: .stretch)
+				.cornerRadius(20)
+				.frame(width: 90, height: 90)
+			Text(recording.soundName)
+				.foregroundColor(Color.accentColor)
+		}
+		.onTapGesture {
+			rec.startPlaying(url: recording.fileURL)
 		}
     }
 }

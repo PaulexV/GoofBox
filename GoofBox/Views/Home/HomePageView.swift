@@ -8,21 +8,36 @@
 import SwiftUI
 
 struct HomePageView: View {
+
+	@StateObject var rec = RecordViewModel()
+	let columns = [
+		GridItem(.adaptive(minimum: 110))
+		]
+
     var body: some View {
 		NavigationStack {
 			VStack(alignment: .leading) {
 				ScrollView {
-					ForEach(0..<5) {_ in
-						HStack {
-								Spacer()
-								SoundItemView(soundName: "sound1")
-								SoundItemView(soundName: "sound2")
-								SoundItemView(soundName: "sound3")
-								Spacer()
+					LazyVGrid(columns: columns) {
+						ForEach(rec.recordingsList, id: \.createdAt) { recording in
+							SoundItemView(
+							recording: recording
+							)
+							.contextMenu(menuItems: {
+								  Button(action: {
+									  print("toto")
+								  }) {
+									  Label("Change Name", systemImage: "pencil")
+								  };
+								  Button(role: .destructive, action: {
+									  rec.deleteRecording(url: recording.fileURL)
+								  }) {
+									  Label("Remove", systemImage: "trash")
+								  }
+							  })
 						}
 					}
-					.padding()
-					Spacer()
+					.padding(.top, 30)
 				}
 			}
 			.toolbar(content: {
@@ -40,7 +55,7 @@ struct HomePageView: View {
 			.navigationTitle("GoofBox")
 			.background(Color("BackgroundColor"))
 		}
-    }
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
