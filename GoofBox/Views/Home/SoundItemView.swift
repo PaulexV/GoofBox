@@ -14,7 +14,7 @@ struct SoundItemView: View {
 
     var body: some View {
 		VStack {
-			Image(recording.imagePath)
+			recording.soundImage
 				.resizable(resizingMode: .stretch)
 				.cornerRadius(20)
 				.frame(width: 90, height: 90)

@@ -7,9 +7,10 @@
 
 import Foundation
 import AVFoundation
+import UIKit
+import SwiftUI
 
 class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
-
 
 	var audioRecorder : AVAudioRecorder!
 	var audioPlayer : AVAudioPlayer!
@@ -21,7 +22,6 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 
 	@Published var isRecording : Bool = false
 	@Published var isPlaying : Bool = false
-
 	@Published var recordingsList = [Recording]()
 
 	override init(){
@@ -70,7 +70,6 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 			addRecording(url: filename)
 		}
 		recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
-		print(recordingsList.count)
 	}
 
 	func fetchAllRecording(){
@@ -131,7 +130,7 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 				soundName: "NewSound",
 				fileURL : url,
 				createdAt:getFileDate(for: url),
-				imagePath: "BlankImage",
+				soundImage: Image("BlankImage"),
 				isPlaying: false))
 		recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
 	}
@@ -171,9 +170,9 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 		}
 	}
 
-	func changeSoundName(newName: String) {
-		if let name = currentRecordingName {
-			self.currentSound?.soundName = newName
-		}
-	}
+//	func changeSoundName(newName: String) {
+//		if let name = currentRecordingName {
+//			self.currentSound?.soundName = newName
+//		}
+//	}
 }

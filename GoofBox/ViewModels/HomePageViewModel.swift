@@ -7,10 +7,16 @@
 
 import Foundation
 import SwiftUI
+import AVFAudio
 
 class HomePageViewModel: ObservableObject {
 
+	var audioPlayer : AVAudioPlayer!
+	var currentSound : Recording? = nil
+
+	@Published var showImagePicker : Bool = false
 	@Published var recordingsList = [Recording]()
+	@Published var isPlaying : Bool = false
 
 	func onAppear() {
 		recordingsList = self.fetchAllRecording()
@@ -42,6 +48,38 @@ class HomePageViewModel: ObservableObject {
 			return creationDate
 		} else {
 			return Date()
+		}
+	}
+
+	func deleteRecording(url : URL) {
+
+		do {
+			try FileManager.default.removeItem(at: url)
+		} catch {
+			print("Can't delete")
+		}
+
+		for i in 0..<recordingsList.count {
+
+			if recordingsList[i].fileURL == url {
+				if recordingsList[i].isPlaying == true{
+					stopPlaying(url: recordingsList[i].fileURL)
+				}
+				recordingsList.remove(at: i)
+				break
+			}
+		}
+	}
+
+	private func stopPlaying(url : URL) {
+
+		audioPlayer.stop()
+		isPlaying = false
+
+		for i in 0..<recordingsList.count {
+			if recordingsList[i].fileURL == url {
+				recordingsList[i].isPlaying = false
+			}
 		}
 	}
 }

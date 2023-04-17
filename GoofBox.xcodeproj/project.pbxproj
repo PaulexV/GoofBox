@@ -15,8 +15,8 @@
 		B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */; };
 		B4A5BA6929E5D8B000C7CE1E /* SoundModifierSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A5BA6829E5D8B000C7CE1E /* SoundModifierSliderView.swift */; };
 		B4A5BA6E29E6128A00C7CE1E /* WaveFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */; };
-		B4B88B0429EC565A0078425B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B88B0329EC565A0078425B /* ImagePicker.swift */; };
 		B4B88B0629EDBE8D0078425B /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B88B0529EDBE8D0078425B /* HomePageViewModel.swift */; };
+		B4B88B0B29EDD40C0078425B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B88B0A29EDD40C0078425B /* ImagePicker.swift */; };
 		B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */; };
 		B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CB165629B8BCD80043C8E0 /* HomePageView.swift */; };
 		B4CB165929B8BCD90043C8E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4CB165829B8BCD90043C8E0 /* Assets.xcassets */; };
@@ -30,8 +30,8 @@
 		B4A4A2BC29CB44DD00CD7385 /* RecordPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageView.swift; sourceTree = "<group>"; };
 		B4A5BA6829E5D8B000C7CE1E /* SoundModifierSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModifierSliderView.swift; sourceTree = "<group>"; };
 		B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFormView.swift; sourceTree = "<group>"; };
-		B4B88B0329EC565A0078425B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B4B88B0529EDBE8D0078425B /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		B4B88B0A29EDD40C0078425B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B4CB165129B8BCD80043C8E0 /* GoofBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoofBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoofBoxApp.swift; sourceTree = "<group>"; };
 		B4CB165629B8BCD80043C8E0 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -104,6 +104,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		B4B88B0929EDD3F80078425B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4B88B0A29EDD40C0078425B /* ImagePicker.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B4CB164829B8BCD80043C8E0 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */,
+				B4B88B0929EDD3F80078425B /* Controllers */,
 				B42090A429E893BE008184A5 /* Models */,
 				B42090A329E893B2008184A5 /* ViewModels */,
 				B4A5BA6A29E6121D00C7CE1E /* Services */,
@@ -223,10 +232,10 @@
 				B4A5BA6E29E6128A00C7CE1E /* WaveFormView.swift in Sources */,
 				B4CB165729B8BCD80043C8E0 /* HomePageView.swift in Sources */,
 				B4A4A2BA29CB111A00CD7385 /* SoundItemView.swift in Sources */,
-				B4B88B0429EC565A0078425B /* ImagePicker.swift in Sources */,
 				B4B88B0629EDBE8D0078425B /* HomePageViewModel.swift in Sources */,
 				B42090A629E8A15D008184A5 /* RecordViewModel.swift in Sources */,
 				B42090A829E8ACF4008184A5 /* Recording.swift in Sources */,
+				B4B88B0B29EDD40C0078425B /* ImagePicker.swift in Sources */,
 				B4A4A2BD29CB44DD00CD7385 /* RecordPageView.swift in Sources */,
 				B4A5BA6929E5D8B000C7CE1E /* SoundModifierSliderView.swift in Sources */,
 				B4CB165529B8BCD80043C8E0 /* GoofBoxApp.swift in Sources */,

@@ -11,9 +11,6 @@ struct HomePageView: View {
 
 	@StateObject private var vm = HomePageViewModel()
 
-	@State private var avatarItem: PhotosPickerItem?
-	@State private var avatarImage: Image?
-
 	let columns = [
 		GridItem(.adaptive(minimum: 110)),
 		GridItem(.adaptive(minimum: 110)),
@@ -67,9 +64,9 @@ struct HomePageView: View {
 					)
 				}
 			})
-			.sheet(isPresented: $rec.showImagePicker, onDismiss: vm.changeSoundImage) {
-				ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.currentModifiedImage)
-			}
+//			.sheet(isPresented: $rec.showImagePicker, onDismiss: vm.changeSoundImage) {
+//				ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.currentModifiedImage)
+//			}
 			.onAppear{
 				vm.onAppear()
 			}
