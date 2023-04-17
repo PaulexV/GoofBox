@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecordPageView: View {
 
-	@ObservedObject var rec = RecordViewModel()
+	@ObservedObject private var rec = RecordViewModel()
 
     var body: some View {
 		NavigationStack {

@@ -15,6 +15,9 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 	var audioPlayer : AVAudioPlayer!
 	var playingURL : URL?
 	var currentFileName : URL?
+	var currentRecordingName : String? = nil
+	var currentModifiedImage : UIImage? = nil
+	var currentSound : Recording? = nil
 
 	@Published var isRecording : Bool = false
 	@Published var isPlaying : Bool = false
@@ -159,6 +162,18 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 			return creationDate
 		} else {
 			return Date()
+		}
+	}
+
+	func changeSoundImage() {
+		if let image = currentModifiedImage {
+			self.currentSound?.soundImage = Image(uiImage: image)
+		}
+	}
+
+	func changeSoundName(newName: String) {
+		if let name = currentRecordingName {
+			self.currentSound?.soundName = newName
 		}
 	}
 }
