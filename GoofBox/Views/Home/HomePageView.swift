@@ -9,8 +9,11 @@ import SwiftUI
 
 struct HomePageView: View {
 
-	@StateObject var rec = RecordViewModel()
+	@StateObject private var vm = HomePageViewModel()
+
 	let columns = [
+		GridItem(.adaptive(minimum: 110)),
+		GridItem(.adaptive(minimum: 110)),
 		GridItem(.adaptive(minimum: 110))
 		]
 
@@ -19,26 +22,35 @@ struct HomePageView: View {
 			VStack(alignment: .leading) {
 				ScrollView {
 					LazyVGrid(columns: columns) {
-						ForEach(rec.recordingsList, id: \.createdAt) { recording in
+						ForEach(vm.recordingsList, id: \.createdAt) { recording in
 							SoundItemView(
 							recording: recording
 							)
 							.contextMenu(menuItems: {
-								  Button(action: {
-									  print("toto")
-								  }) {
-									  Label("Change Name", systemImage: "pencil")
-								  };
-								  Button(role: .destructive, action: {
-									  rec.deleteRecording(url: recording.fileURL)
-								  }) {
-									  Label("Remove", systemImage: "trash")
-								  }
-							  })
+								Button(action: {
+									print("toto")
+								}) {
+									Label("Change Name", systemImage: "pencil")
+								}
+								Button(action: {
+									vm.currentSound = recording
+									vm.showImagePicker.toggle()
+								}) {
+									Label("Change Image", systemImage: "photo")
+								}
+								Button(role: .destructive, action: {
+									vm.deleteRecording(url: recording.fileURL)
+								}) {
+									Label("Remove", systemImage: "trash")
+								}
+							})
 						}
 					}
 					.padding(.top, 30)
 				}
+			}
+			.onTapGesture {
+				print(vm.recordingsList)
 			}
 			.toolbar(content: {
 				ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,6 +64,12 @@ struct HomePageView: View {
 					)
 				}
 			})
+//			.sheet(isPresented: $rec.showImagePicker, onDismiss: vm.changeSoundImage) {
+//				ImagePicker(sourceType: .photoLibrary, selectedImage: $vm.currentModifiedImage)
+//			}
+			.onAppear{
+				vm.onAppear()
+			}
 			.navigationTitle("GoofBox")
 			.background(Color("BackgroundColor"))
 		}
