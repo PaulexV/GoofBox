@@ -19,9 +19,14 @@ struct RecordPageView: View {
 					Spacer()
 
 					Button {
-						rec.isPlaying ?
-						rec.stopPlaying(url: rec.recordingsList.first!.fileURL) :
-						rec.startPlaying(url: rec.recordingsList.first!.fileURL)
+						if rec.isPlaying {
+							rec.stopPlaying(url: rec.recordingsList.first!.fileURL)
+						} else {
+							if (rec.recordingsList.first == nil) {
+								return
+							}
+							rec.startPlaying(url: rec.recordingsList.first!.fileURL)
+						}
 					} label: {
 						Image(systemName: rec.isPlaying ? "pause.circle" : "play.circle")
 							.font(.system(size: 50))
