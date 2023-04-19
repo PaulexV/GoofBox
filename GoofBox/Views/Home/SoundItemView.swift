@@ -18,7 +18,7 @@ struct SoundItemView: View {
 				.resizable(resizingMode: .stretch)
 				.cornerRadius(20)
 				.frame(width: 90, height: 90)
-			Text(recording.soundName)
+			Text(recording.createdAt.formatted(date: .numeric, time: .shortened))
 				.foregroundColor(Color.accentColor)
 		}
 		.onTapGesture {
