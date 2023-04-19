@@ -54,12 +54,10 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 			audioRecorder.prepareToRecord()
 			audioRecorder.record()
 			isRecording = true
-
 		} catch {
 			print("Failed to Setup the Recording")
 		}
 	}
-
 
 	func stopRecording(){
 		audioRecorder.stop()

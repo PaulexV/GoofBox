@@ -32,6 +32,7 @@
 		B4A5BA6D29E6128A00C7CE1E /* WaveFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFormView.swift; sourceTree = "<group>"; };
 		B4B88B0529EDBE8D0078425B /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		B4B88B0A29EDD40C0078425B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B4B88B1029EFE08D0078425B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B4CB165129B8BCD80043C8E0 /* GoofBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoofBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoofBoxApp.swift; sourceTree = "<group>"; };
 		B4CB165629B8BCD80043C8E0 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -132,6 +133,7 @@
 		B4CB165329B8BCD80043C8E0 /* GoofBox */ = {
 			isa = PBXGroup;
 			children = (
+				B4B88B1029EFE08D0078425B /* Info.plist */,
 				B4CB165429B8BCD80043C8E0 /* GoofBoxApp.swift */,
 				B4B88B0929EDD3F80078425B /* Controllers */,
 				B42090A429E893BE008184A5 /* Models */,
@@ -370,6 +372,8 @@
 				DEVELOPMENT_TEAM = 28L73Q3ZF5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoofBox/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow App to access the microphone ?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,6 +403,8 @@
 				DEVELOPMENT_TEAM = 28L73Q3ZF5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoofBox/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow App to access the microphone ?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
