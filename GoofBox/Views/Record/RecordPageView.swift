@@ -9,14 +9,17 @@ import SwiftUI
 
 struct RecordPageView: View {
 
-	@ObservedObject private var rec = RecordViewModel()
+	@StateObject private var rec = RecordViewModel()
 
     var body: some View {
 		NavigationStack {
 			ZStack {
 				Color("BackgroundColor").ignoresSafeArea()
 				VStack(alignment: .center) {
-					Spacer()
+
+					WaveformView(samples: rec.getSamples())
+						.frame(height: 100)
+						.padding([.top, .bottom], 50)
 
 					Button {
 						if rec.isPlaying {
