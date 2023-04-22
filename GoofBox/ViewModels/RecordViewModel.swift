@@ -40,7 +40,7 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 		
 		let recordingSession = AVAudioSession.sharedInstance()
 		do {
-			try recordingSession.setCategory(.record, mode: .default)
+			try recordingSession.setCategory(.playAndRecord, mode: .default)
 			try recordingSession.setActive(true)
 		} catch {
 			print("Can not setup the Recording")
@@ -50,26 +50,22 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 		currentFileName = path.appendingPathComponent("GoofBox : \(Date()).m4a")
 		
 		let settings = [
-			AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+			AVFormatIDKey: Int(kAudioFormatLinearPCM),
 			AVSampleRateKey: 44100,
 			AVNumberOfChannelsKey: 1,
-			AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+			AVEncoderAudioQualityKey: AVAudioQuality.low.rawValue
 		]
-		
+		let format = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1)
+
 		audioEngine = AVAudioEngine()
 		audioPlayerNode = AVAudioPlayerNode()
 		audioEngine.attach(audioPlayerNode)
-		let format = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1)
 		audioEngine.connect(audioPlayerNode, to: audioEngine.mainMixerNode, format: format)
-		
-		// Récupérer la fréquence d'échantillonnage et la taille du tampon
-		sampleRate = audioEngine.inputNode.inputFormat(forBus: 0).sampleRate
-		bufferSize = UInt32(audioEngine.inputNode.inputFormat(forBus: 0).sampleRate / 10)
 		
 		// Installer un tap pour récupérer les échantillons en temps réel
 		let inputNode = audioEngine.inputNode
 		let inputFormat = inputNode.inputFormat(forBus: 0)
-		inputNode.installTap(onBus: 0, bufferSize: bufferSize, format: inputFormat) { [self] buffer, _ in
+		inputNode.installTap(onBus: 0, bufferSize: 1024, format: inputFormat) { [weak self] buffer, _ in
 			let samples = buffer.floatChannelData![0]
 				let count = Int(buffer.frameLength)
 
@@ -85,13 +81,12 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 					}
 				}
 
-				for i in 0..<count {
+				for i in 0..<count/150 {
 					let sample = (samples[i] - min) / (max - min)
-					self.samples.append(sample)
-					print(sample)
+					self?.samples.append(sample)
 				}
 			DispatchQueue.main.async {
-				self.objectWillChange.send()
+				self?.objectWillChange.send()
 			}
 		}
 		
@@ -102,6 +97,7 @@ class RecordViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 			try audioEngine.start()
 			isRecording = true
 		} catch {
+			print("Error info: \(error)")
 			print("Failed to Setup the Recording")
 		}
 	}

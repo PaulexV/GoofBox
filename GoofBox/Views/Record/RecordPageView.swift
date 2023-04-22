@@ -19,7 +19,7 @@ struct RecordPageView: View {
 
 					WaveformView(samples: rec.getSamples())
 						.frame(height: 100)
-						.padding([.top, .bottom], 50)
+						.padding([.top, .bottom], 25)
 
 					Button {
 						if rec.isPlaying {
